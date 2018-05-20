@@ -1,0 +1,12 @@
+---
+# tasks file for deployment
+
+# create test folder at /opt/
+- name: Creates directory
+  file: path=/home/ansible/test state=directory
+
+- name: example copying file with owner and permissions
+  copy:
+    src: /var/lib/jenkins/workspace/test/target/petclinic.war
+    dest: /opt/tomcat7/webapps/
+    mode: 0777
